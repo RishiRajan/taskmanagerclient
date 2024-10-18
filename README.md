@@ -2,8 +2,8 @@
 
 ## Project Overview
 
-**Repository**: [GitHub Repository Link](https://github.com/yourusername/taskmanager)  
-**Live URL**: [Live Application URL](https://your-live-url.com)
+
+**Live URL**: [Live Application URL](https://spontaneous-griffin-9efbed.netlify.app/)
 
 This project is a Task Manager application built using Spring Boot for the backend and React for the frontend. It allows users to manage tasks, track their status, and assign them to users.
 
@@ -32,11 +32,3 @@ This project is a Task Manager application built using Spring Boot for the backe
 
 ---
 
-## Running the Project
-
-### Backend (Spring Boot)
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/taskmanager.git
-   cd taskmanager
