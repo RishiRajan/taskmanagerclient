@@ -27,8 +27,6 @@ This project is a Task Manager application built using Spring Boot for the backe
 - **React Router DOM**: A library for routing in React applications.
 - **Redux**: A state management library for JavaScript applications.
 - **Material-UI**: A library of React components that implement Google's Material Design.
-- **Formik**: A library for building forms in React.
-- **Yup**: A schema builder for value parsing and validation.
 - **Axios**: A promise-based HTTP client for making requests to the backend API.
 - **Chart.js**: A library for creating charts in React applications.
 
