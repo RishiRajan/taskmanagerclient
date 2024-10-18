@@ -16,7 +16,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 
 const url = process.env.REACT_APP_API_URL;
 
