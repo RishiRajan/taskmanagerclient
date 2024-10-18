@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Task Manager Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+**Repository**: [GitHub Repository Link](https://github.com/yourusername/taskmanager)  
+**Live URL**: [Live Application URL](https://your-live-url.com)
 
-In the project directory, you can run:
+This project is a Task Manager application built using Spring Boot for the backend and React for the frontend. It allows users to manage tasks, track their status, and assign them to users.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies and Libraries Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend (Spring Boot)
 
-### `npm test`
+- **Spring Boot**: A framework to simplify the setup and development of new Spring applications.
+- **Spring Data JPA**: Provides a way to manage relational data in Java applications with minimal boilerplate code.
+- **Spring Web**: Provides RESTful web services and web applications.
+- **Spring Boot DevTools**: Adds developer tools for enhanced productivity during development.
+- **MySQL Connector/J**: A JDBC driver for connecting to MySQL databases.
+- **SpringDoc OpenAPI**: Automates the generation of OpenAPI documentation for RESTful APIs.
+- **Lombok**: A library that helps reduce boilerplate code in Java (e.g., getters, setters).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend (React)
 
-### `npm run build`
+- **React**: A JavaScript library for building user interfaces.
+- **React Router DOM**: A library for routing in React applications.
+- **Redux**: A state management library for JavaScript applications.
+- **Material-UI**: A library of React components that implement Google's Material Design.
+- **Formik**: A library for building forms in React.
+- **Yup**: A schema builder for value parsing and validation.
+- **Axios**: A promise-based HTTP client for making requests to the backend API.
+- **Chart.js**: A library for creating charts in React applications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running the Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend (Spring Boot)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/taskmanager.git
+   cd taskmanager
