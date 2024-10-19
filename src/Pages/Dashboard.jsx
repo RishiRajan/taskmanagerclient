@@ -152,7 +152,6 @@ const Dashboard = () => {
     }
   };
 
-  // Manual validation function
   const validateForm = (values) => {
     const errors = {};
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -241,7 +240,7 @@ const Dashboard = () => {
             value={formValues.title}
             error={Boolean(formErrors.title)}
             helperText={formErrors.title}
-            sx={{ my: 2 }} // margin above and below
+            sx={{ my: 2 }}
           />
           <TextField
             label="Description"
@@ -253,7 +252,7 @@ const Dashboard = () => {
             value={formValues.description}
             error={Boolean(formErrors.description)}
             helperText={formErrors.description}
-            sx={{ my: 2 }} // margin above and below
+            sx={{ my: 2 }}
           />
           <TextField
             label="Assigned To"
@@ -263,7 +262,7 @@ const Dashboard = () => {
             value={formValues.assignedTo}
             error={Boolean(formErrors.assignedTo)}
             helperText={formErrors.assignedTo}
-            sx={{ my: 2 }} // margin above and below
+            sx={{ my: 2 }}
           />
           <FormControl fullWidth>
             <InputLabel id="state-select-label">Status</InputLabel>
@@ -312,7 +311,7 @@ const Dashboard = () => {
               })
             }
             disabled={!isEditing}
-            sx={{ my: 2 }} // margin above and below
+            sx={{ my: 2 }}
           />
           <TextField
             label="Description"
@@ -327,7 +326,7 @@ const Dashboard = () => {
               })
             }
             disabled={!isEditing}
-            sx={{ my: 2 }} // margin above and below
+            sx={{ my: 2 }}
           />
           <TextField
             label="Assigned To"
@@ -340,7 +339,7 @@ const Dashboard = () => {
               })
             }
             disabled={!isEditing}
-            sx={{ my: 2 }} // margin above and below
+            sx={{ my: 2 }}
           />
           <FormControl fullWidth>
             <InputLabel id="state-select-label">Status</InputLabel>
