@@ -34,6 +34,7 @@ const Dashboard = () => {
     assignedTo: "",
     state: "Todo",
   });
+  const [isTaskLoading, setIsTaskLoading] = useState(false);
   const [formErrors, setFormErrors] = useState({});
 
   // Fetch tasks from the API
@@ -98,24 +99,6 @@ const Dashboard = () => {
       }
     }
   };
-
-  // Handle task update
-  const updateTask = async () => {
-    if (selectedTask) {
-      try {
-        await axios.put(`${url}/tasks`, selectedTask);
-        setTasks(
-          tasks.map((task) =>
-            task.id === selectedTask.id ? selectedTask : task
-          )
-        );
-        closeModal();
-      } catch (err) {
-        console.error("Failed to update the task:", err);
-      }
-    }
-  };
-
   // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -127,15 +110,34 @@ const Dashboard = () => {
     setIsEditing(true);
   };
 
+  const updateTask = async () => {
+    if (selectedTask) {
+      setIsTaskLoading(true); // Start loading
+      try {
+        await axios.put(`${url}/tasks`, selectedTask);
+        setTasks(
+          tasks.map((task) =>
+            task.id === selectedTask.id ? selectedTask : task
+          )
+        );
+        closeModal();
+      } catch (err) {
+        console.error("Failed to update the task:", err);
+      } finally {
+        setIsTaskLoading(false); // End loading
+      }
+    }
+  };
+
   // Handle adding a new task
   const addTask = async () => {
-    // Validate form inputs
     const errors = validateForm(formValues);
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       return;
     }
 
+    setIsTaskLoading(true); // Start loading
     try {
       const response = await axios.post(`${url}/tasks`, formValues);
       setTasks([...tasks, response.data]);
@@ -149,6 +151,8 @@ const Dashboard = () => {
       setFormErrors({});
     } catch (err) {
       console.error("Failed to add the task:", err);
+    } finally {
+      setIsTaskLoading(false); // End loading
     }
   };
 
@@ -192,23 +196,28 @@ const Dashboard = () => {
           }}>
           <Grid item xs={12}>
             <Grid container>
-              <Grid item xs={8}>
+              <Grid item xs={6} md={8}>
                 {" "}
                 <h3>Task List</h3>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6} md={4}>
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => setIsAddTaskModalOpen(true)}>
+                  onClick={() => setIsAddTaskModalOpen(true)}
+                  sx={{
+                    marginTop: {
+                      xs: "10%",
+                    },
+                  }}>
                   Add Task
                 </Button>
               </Grid>
             </Grid>
           </Grid>
-          <Grid container spacing={2}>
+          <Grid container rowSpacing={1} columnSpacing={5}>
             {tasks.map((task) => (
-              <Grid item xs={12} sm={6} md={4} key={task.id}>
+              <Grid item xs={12} sm={6} md={6} lg={4} key={task.id}>
                 <TaskCard task={task} onClick={() => handleCardClick(task)} />
               </Grid>
             ))}
@@ -218,12 +227,24 @@ const Dashboard = () => {
           </Grid>
           <Grid item xs={12}>
             <div
-              style={{ width: "400px", height: "400px", margin: "20px auto" }}>
-              <Pie data={pieChartData} />
+              style={{
+                width: "100%",
+                maxWidth: "80%",
+                height: "400px",
+                margin: "20px auto",
+              }}>
+              <Pie
+                data={pieChartData}
+                options={{
+                  maintainAspectRatio: false,
+                  responsive: true,
+                }}
+              />
             </div>
           </Grid>
         </Grid>
       )}
+      {isTaskLoading && <p>Loading...</p>}
 
       <Dialog
         open={isAddTaskModalOpen}
@@ -284,8 +305,9 @@ const Dashboard = () => {
             color="primary"
             variant="contained"
             onClick={addTask}
-            sx={{ mt: 2 }}>
-            Add Task
+            sx={{ mt: 2 }}
+            disabled={isTaskLoading}>
+            {isTaskLoading ? "Loading..." : "Add Task"}
           </Button>
         </DialogContent>
         <DialogActions>
@@ -362,8 +384,11 @@ const Dashboard = () => {
         <DialogActions>
           {isEditing ? (
             <>
-              <Button onClick={updateTask} color="primary">
-                Save
+              <Button
+                onClick={updateTask}
+                color="primary"
+                disabled={isTaskLoading}>
+                {isTaskLoading ? "Loading..." : "Save"}
               </Button>
               <Button onClick={closeModal} color="secondary">
                 Cancel

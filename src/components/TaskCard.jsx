@@ -9,18 +9,31 @@ const TaskCard = ({ task, onClick }) => {
       sx={{
         cursor: "pointer",
         backgroundColor: "#f8f2f4",
-        width: "275px", // Set a fixed width here
-        height: "150px",
-        margin: "16px", // Optional: add some margin for spacing between cards
+        width: {
+          xs: "90%", // Full width for extra small screens
+          sm: "70%", // Wider for small screens
+          md: "80%", // Medium size for medium screens
+          lg: "80%", // Larger size for large screens
+        },
+        height: {
+          xs: "auto", // Adjust height based on content for extra small screens
+          sm: "180px", // Increase height for small screens
+          md: "80%", // Medium size for medium screens
+          lg: "80%", // Larger size for large screens
+        },
+        margin: "16px",
       }}>
       <CardContent>
-        <Typography variant="h5" component="div" sx={{ fontFamily: "inter" }}>
-          {task.title}
+        <Typography
+          variant="h5"
+          component="div"
+          sx={{ fontFamily: "inter", fontSize: "1em", fontWeight: "Bold" }}>
+          {task.title.toUpperCase()}
         </Typography>
         <Typography
-          variant="body3"
+          variant="body2"
           component="div"
-          sx={{ fontFamily: "inter" }}>
+          sx={{ fontFamily: "inter", fontSize: "0.9em", marginTop: "5px" }}>
           Assigned To: {task.assignedTo}
         </Typography>
         <div
